@@ -1,0 +1,10 @@
+target/
+*.iml
+.idea
+*.log
+tmp
+dependency-reduced-pom.xml
+.classpath
+.project
+.settings
+.java-version
