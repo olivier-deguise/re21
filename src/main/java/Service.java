@@ -1,4 +1,6 @@
 import io.jooby.Jooby;
+import io.jooby.ServerOptions;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +9,8 @@ public class Service extends Jooby {
     public static void main(String[] args) { runApp(args, Service::new); }
 
     {
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
+        setServerOptions(new ServerOptions().setPort(port));
         get("/", ctx -> "Welcome to our drink ordering system");
         get("/orders", ctx -> getAllOrders() );
         get("/orders/{owner}/{recipient}/{drink}", ctx -> {
